@@ -18,4 +18,10 @@
     <ProjectReference Include="..\TARge21Shop.Data\TARge21Shop.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Cars\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Cars\" />
+  </ItemGroup>
 </Project>
