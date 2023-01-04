@@ -6,10 +6,10 @@ namespace TARge21Shop.Core.ServiceInterface
 {
     public interface ICarsServices
     {
-        Task<Spaceship> Create(CarDto dto);
-        Task<Spaceship> Update(CarDto dto);
-        Task<Spaceship> Delete(Guid id);
-        Task<Spaceship> GetAsync(Guid id);
+        Task<Car> Create(CarDto dto);
+        Task<Car> Update(CarDto dto);
+        Task<Car> Delete(Guid id);
+        Task<Car> GetAsync(Guid id);
     }
 }
 
