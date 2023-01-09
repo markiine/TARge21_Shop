@@ -3,4 +3,4 @@
 Spaceship in main branch.
 Car in develop branch.
 
-Some things in develop branch in CarService file are "broken".
+Can't do migration in my Mac, have tu finish project in school computer.
