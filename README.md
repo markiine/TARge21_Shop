@@ -3,4 +3,4 @@
 Spaceship in main branch.
 Car in develop branch.
 
-Can't do migration in my Mac, have tu finish project in school computer.
+Can't do migration in my Mac, have to finish project in school computer.
