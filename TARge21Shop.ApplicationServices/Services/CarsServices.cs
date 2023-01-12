@@ -67,14 +67,6 @@ namespace TARge21Shop.ApplicationServices.Services
             return domain;
         }
 
-        //public async Task<Car> GetUpdate(Guid id)
-        //{
-        //    var result = await _context.Cars
-        //        .FirstOrDefaultAsync(x => x.Id == id);
-
-        //    return result;
-        //}
-
         public async Task<Car> Delete(Guid id)
         {
             var carId = await _context.Cars

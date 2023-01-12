@@ -17,22 +17,18 @@ namespace TARge21Shop.ApplicationServices.Services
     public class SpaceshipsServices : ISpaceshipsServices
     {
         private readonly TARge21ShopContext _context;
-        private readonly IFilesServices _files;
 
         public SpaceshipsServices
             (
-            TARge21ShopContext context,
-            IFilesServices files
+            TARge21ShopContext context
             )
         {
             _context = context;
-            _files = files;
         }
 
         public async Task<Spaceship> Create(SpaceshipDto dto)
         {
             Spaceship spaceship = new Spaceship();
-            FileToDatabase file = new FileToDatabase();
 
             spaceship.Id = Guid.NewGuid();
             spaceship.Name = dto.Name;
@@ -48,12 +44,6 @@ namespace TARge21Shop.ApplicationServices.Services
             spaceship.BuiltDate = dto.BuiltDate;
             spaceship.CreatedAt = DateTime.Now;
             spaceship.ModifiedAt = DateTime.Now;
-
-            if (dto.Files != null)
-            {
-                _files.UploadFilesToDatabase(dto, spaceship);
-            }
-
 
             await _context.Spaceships.AddAsync(spaceship);
             await _context.SaveChangesAsync();
