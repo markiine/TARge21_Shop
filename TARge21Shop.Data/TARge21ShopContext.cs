@@ -15,7 +15,6 @@ namespace TARge21Shop.Data
         }
 
         public DbSet<Spaceship> Spaceships { get; set; }
-        public DbSet<FileToDatabase> FileToDatabases { get; set; }
         public DbSet<Car> Cars { get; set; }
 
     }
