@@ -11,15 +11,18 @@ namespace TARge21Shop.Controllers
     {
         private readonly TARge21ShopContext _context;
         private readonly ISpaceshipsServices _spaceshipsServices;
+        private readonly IFilesServices _filesServices;
 
         public SpaceshipsController
             (
                 TARge21ShopContext context,
-                ISpaceshipsServices spaceshipsServices
+                ISpaceshipsServices spaceshipsServices,
+                IFilesServices filesServices
             )
         {
             _context = context;
             _spaceshipsServices = spaceshipsServices;
+            _filesServices = filesServices;
         }
 
         public IActionResult Index()
@@ -142,7 +145,15 @@ namespace TARge21Shop.Controllers
                 MaidenLaunch = vm.MaidenLaunch,
                 BuiltDate = vm.BuiltDate,
                 CreatedAt = vm.CreatedAt,
-                ModifiedAt = vm.ModifiedAt
+                ModifiedAt = vm.ModifiedAt,
+                Files = vm.Files,
+                Image = vm.Image.Select(x => new FileToDatabaseDto
+                {
+                    Id = x.ImageId,
+                    ImageData = x.ImageData,
+                    ImageTitle = x.ImageTitle,
+                    SpaceshipId = x.SpaceshipId,
+                }).ToArray()
             };
 
             var result = await _spaceshipsServices.Update(dto);
@@ -232,6 +243,24 @@ namespace TARge21Shop.Controllers
         {
             var spaceshipId = await _spaceshipsServices.Delete(id);
             if (spaceshipId == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveImage(ImageViewModel file)
+        {
+            var dto = new FileToDatabaseDto()
+            {
+                Id = file.ImageId
+            };
+
+            var image = await _filesServices.RemoveImage(dto);
+
+            if (image == null)
             {
                 return RedirectToAction(nameof(Index));
             }
