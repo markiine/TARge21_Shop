@@ -7,11 +7,11 @@ namespace TARge21Shop.Controllers
 {
     public class RealEstatesController : Controller
     {
-        private readonly IRealEstates _realEstates;
+        private readonly IRealEstatesServices _realEstates;
 
         public RealEstatesController
             (
-                IRealEstates realEstates
+                IRealEstatesServices realEstates
             )
         {
             _realEstates = realEstates;

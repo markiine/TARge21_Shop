@@ -12,7 +12,7 @@ using TARge21Shop.Data;
 
 namespace TARge21Shop.ApplicationServices.Services
 {
-    public class RealEstatesServices : IRealEstates
+    public class RealEstatesServices : IRealEstatesServices
     {
         private readonly TARge21ShopContext _context;
         public RealEstatesServices
