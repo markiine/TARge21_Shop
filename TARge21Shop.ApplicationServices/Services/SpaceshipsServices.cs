@@ -97,6 +97,17 @@ namespace TARge21Shop.ApplicationServices.Services
             var spaceshipId = await _context.Spaceships
                 .FirstOrDefaultAsync(x => x.Id == id);
 
+            var images = await _context.FileToDatabases
+                .Where(x => x.SpaceshipId == id)
+                .Select(y => new FileToDatabaseDto
+                {
+                    Id = y.Id,
+                    ImageTitle = y.ImageTitle,
+                    SpaceshipId = y.SpaceshipId,
+                })
+                .ToArrayAsync();
+
+            await _files.RemoveImagesFromDatabase(images); // et andmebaasist ka ära kustuks
             _context.Spaceships.Remove(spaceshipId);
             await _context.SaveChangesAsync();
 
