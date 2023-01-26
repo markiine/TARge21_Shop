@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TARge21Shop.Core.Domain
+﻿namespace TARge21Shop.Models.RealEstate
 {
-    public class RealEstate
+    public class RealEstateIndexViewModel
     {
         public Guid? Id { get; set; }
         public string Address { get; set; }

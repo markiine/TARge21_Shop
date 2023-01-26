@@ -10,9 +10,9 @@ namespace TARge21Shop.Core.ServiceInterface
 {
     public interface IRealEstates
     {
-        //Task<RealEstate> Create(RealEstateDto dto);
+        Task<RealEstate> GetAsync(Guid id);
+        Task<RealEstate> Create(RealEstateDto dto);
         //Task<RealEstate> Update(RealEstateDto dto);
         //Task<RealEstate> Delete(Guid id);
-        Task<RealEstate> GetAsync(Guid id);
     }
 }
