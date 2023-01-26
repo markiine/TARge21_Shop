@@ -116,7 +116,8 @@ namespace TARge21Shop.ApplicationServices.Services
 
         public async Task<Spaceship> GetAsync(Guid id)
         {
-            var result = await _context.Spaceships.FirstOrDefaultAsync(x => x.Id == id);
+            var result = await _context.Spaceships
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             return result;
         }
