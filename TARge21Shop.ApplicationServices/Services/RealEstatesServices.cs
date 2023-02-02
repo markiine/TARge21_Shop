@@ -72,7 +72,7 @@ namespace TARge21Shop.ApplicationServices.Services
         {
             var domain = new RealEstate()
             {
-                 Id = Guid.NewGuid(),
+                Id = dto.Id,
                 Address = dto.Address,
                 City = dto.City,
                 Region = dto.Region,
@@ -115,8 +115,8 @@ namespace TARge21Shop.ApplicationServices.Services
             //    .ToArrayAsync();
 
             //await _files.RemoveImagesFromDatabase(images); // et andmebaasist ka ära kustuks
-            //_context.RealEstates.Remove(realEstateId);
-            //await _context.SaveChangesAsync();
+            _context.RealEstates.Remove(realEstateId);
+            await _context.SaveChangesAsync();
 
             return realEstateId;
         }
