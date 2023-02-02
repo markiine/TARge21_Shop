@@ -6,7 +6,6 @@ using TARge21Shop.Core.Dto;
 using TARge21Shop.Core.ServiceInterface;
 using TARge21Shop.Data;
 using TARge21Shop.Models.RealEstate;
-using TARge21Shop.Models.Spaceship;
 
 namespace TARge21Shop.Controllers
 {
@@ -75,7 +74,7 @@ namespace TARge21Shop.Controllers
                 //    Id = x.ImageId,
                 //    ImageData = x.ImageData,
                 //    ImageTitle = x.ImageTitle,
-                //    SpaceshipId = x.SpaceshipId,
+                //    RealEstateId = x.RealEstateId,
                 //}).ToArray()
 
             };
@@ -101,10 +100,10 @@ namespace TARge21Shop.Controllers
             }
 
             //var photos = await _context.FileToDatabases
-            //    .Where(x => x.SpaceshipId == id)
+            //    .Where(x => x.RealEstateId == id)
             //    .Select(y => new ImageViewModel
             //    {
-            //        SpaceshipId = y.Id,
+            //        RealEstateId = y.Id,
             //        ImageId = y.Id,
             //        ImageData = y.ImageData,
             //        ImageTitle = y.ImageTitle,
@@ -158,7 +157,7 @@ namespace TARge21Shop.Controllers
                 //    Id = x.ImageId,
                 //    ImageData = x.ImageData,
                 //    ImageTitle = x.ImageTitle,
-                //    SpaceshipId = x.SpaceshipId,
+                //    RealEstateId = x.RealEstateId,
                 //}).ToArray()
             };
 
@@ -183,10 +182,10 @@ namespace TARge21Shop.Controllers
             }
 
             //var photos = await _context.FileToDatabases
-            //    .Where(x => x.SpaceshipId == id)
+            //    .Where(x => x.RealEstateId == id)
             //    .Select(y => new ImageViewModel
             //    {
-            //        SpaceshipId = y.Id,
+            //        RealEstateId = y.Id,
             //        ImageId = y.Id,
             //        ImageData = y.ImageData,
             //        ImageTitle = y.ImageTitle,
@@ -224,10 +223,10 @@ namespace TARge21Shop.Controllers
             }
 
             //var photos = await _context.FileToDatabases
-            //    .Where(x => x.SpaceshipId == id)
+            //    .Where(x => x.RealEstateIdd == id)
             //    .Select(y => new ImageViewModel
             //    {
-            //        SpaceshipId = y.Id,
+            //        RealEstateId = y.Id,
             //        ImageId = y.Id,
             //        ImageData = y.ImageData,
             //        ImageTitle = y.ImageTitle,
