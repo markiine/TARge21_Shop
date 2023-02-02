@@ -16,7 +16,7 @@
         public int RoomCount { get; set; }
 
         // only in database
-        public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }
