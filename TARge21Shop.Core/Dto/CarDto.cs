@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 namespace TARge21Shop.Core.Dto
 {
     public class CarDto
@@ -13,6 +14,9 @@ namespace TARge21Shop.Core.Dto
         public int Weight { get; set; }
         public DateTime BuiltDate { get; set; }
         public DateTime LastMaintenance { get; set; }
+
+        public List<IFormFile> Files { get; set; }
+        public IEnumerable<FileToDatabaseDto> Image { get; set; } = new List<FileToDatabaseDto>();
 
         // only in database
         public DateTime CreatedAt { get; set; }
