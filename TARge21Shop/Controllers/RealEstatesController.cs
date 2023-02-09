@@ -68,6 +68,7 @@ namespace TARge21Shop.Controllers
                 RoomCount = vm.RoomCount,
                 ModifiedAt = vm.ModifiedAt,
                 CreatedAt = vm.CreatedAt,
+                Files = vm.Files,
                 FileToApiDtos = vm.FileToApiViewModels.Select(x => new FileToApiDto
                 {
                     Id = x.ImageId,
@@ -157,6 +158,12 @@ namespace TARge21Shop.Controllers
                 //    ImageTitle = x.ImageTitle,
                 //    RealEstateId = x.RealEstateId,
                 //}).ToArray()
+                FileToApiDtos = vm.FileToApiViewModels.Select(x => new FileToApiDto
+                {
+                    Id = x.ImageId,
+                    ExistingFilePath = x.FilePath,
+                    RealEstateId = x.RealEstateId
+                }).ToArray()
             };
 
             var result = await _realEstatesServices.Update(dto);

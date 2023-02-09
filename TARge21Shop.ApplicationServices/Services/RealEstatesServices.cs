@@ -55,12 +55,6 @@ namespace TARge21Shop.ApplicationServices.Services
             realEstate.CreatedAt = DateTime.Now;
             _fileServices.FilesToApi(dto, realEstate);
 
-            //if (dto.Files != null)
-            //{
-            //    _files.UploadFilesToDatabase(dto, realEstate);
-            //}
-
-
             await _context.RealEstates.AddAsync(realEstate);
             await _context.SaveChangesAsync();
 
