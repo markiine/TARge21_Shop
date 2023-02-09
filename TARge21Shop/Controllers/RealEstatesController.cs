@@ -68,14 +68,12 @@ namespace TARge21Shop.Controllers
                 RoomCount = vm.RoomCount,
                 ModifiedAt = vm.ModifiedAt,
                 CreatedAt = vm.CreatedAt,
-                //Files = vm.Files,
-                //Image = vm.Image.Select(x => new FileToDatabaseDto
-                //{
-                //    Id = x.ImageId,
-                //    ImageData = x.ImageData,
-                //    ImageTitle = x.ImageTitle,
-                //    RealEstateId = x.RealEstateId,
-                //}).ToArray()
+                FileToApiDtos = vm.FileToApiViewModels.Select(x => new FileToApiDto
+                {
+                    Id = x.ImageId,
+                    ExistingFilePath = x.FilePath,
+                    RealEstateId = x.RealEstateId
+                }).ToArray()
 
             };
 

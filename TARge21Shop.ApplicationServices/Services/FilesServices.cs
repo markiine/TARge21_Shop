@@ -79,7 +79,7 @@ namespace TARge21Shop.ApplicationServices.Services
         }
         public void FilesToApi(RealEstateDto dto, RealEstate realEstate)
         {
-            string uniqueFileName = null;
+            //string uniqueFileName = null;
 
             if (dto.Files != null && dto.Files.Count > 0)
             {
@@ -91,7 +91,7 @@ namespace TARge21Shop.ApplicationServices.Services
                 foreach (var image in dto.Files)
                 {
                     string uploadsFolder = Path.Combine(_webHost.WebRootPath, "multipleFileUpload");
-                    uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;
+                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;
                     string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
                     using (var fileStream = new FileStream(filePath, FileMode.Create))

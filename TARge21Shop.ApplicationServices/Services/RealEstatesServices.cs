@@ -15,15 +15,15 @@ namespace TARge21Shop.ApplicationServices.Services
     public class RealEstatesServices : IRealEstatesServices
     {
         private readonly TARge21ShopContext _context;
-        // private readonly IFilesServices _files;
+        private readonly IFilesServices _fileServices;
         public RealEstatesServices
             (
-                TARge21ShopContext context
-                //IFilesServices files
+                TARge21ShopContext context,
+                IFilesServices fileServices
             )
         {
             _context = context;
-            //_files = files;
+            _fileServices = fileServices;
         }
 
         public async Task<RealEstate> GetAsync(Guid id)
@@ -53,6 +53,7 @@ namespace TARge21Shop.ApplicationServices.Services
             realEstate.RoomCount = dto.RoomCount;
             realEstate.ModifiedAt = DateTime.Now;
             realEstate.CreatedAt = DateTime.Now;
+            _fileServices.FilesToApi(dto, realEstate);
 
             //if (dto.Files != null)
             //{
