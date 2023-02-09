@@ -21,8 +21,9 @@ namespace TARge21Shop.Core.Dto
         public int Floor { get; set; }
         public int Price { get; set; }
         public int RoomCount { get; set; }
-        //public List<IFormFile> Files { get; set; }
-        //public IEnumerable<FileToDatabaseDto> Image { get; set; } = new List<FileToDatabaseDto>();
+
+        public List<IFormFile> Files { get; set; }
+        public IEnumerable<FileToApiDto> FileToApiDtos { get; set; } = new List<FileToApiDto>();
 
         // only in database
         public DateTime ModifiedAt { get; set; }
