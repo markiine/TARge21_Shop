@@ -1,4 +1,6 @@
-﻿namespace TARge21Shop.Models.Spaceship
+﻿using TARge21Shop.Models.Car;
+
+namespace TARge21Shop.Models.Spaceship
 {
     public class SpaceshipDeleteViewModel
     {
@@ -15,6 +17,8 @@
 
         public DateTime MaidenLaunch { get; set; }
         public DateTime BuiltDate { get; set; }
+
+        public List<ImageViewModel> Image { get; set; } = new List<ImageViewModel>();
 
         // only in database
         public DateTime CreatedAt { get; set; }

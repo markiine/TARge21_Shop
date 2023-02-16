@@ -24,22 +24,22 @@ namespace TARge21Shop.ApplicationServices.Services
 
         public async Task<Car> Create(CarDto dto)
         {
-            Car car = new Car()
-            {
-                Id = Guid.NewGuid(),
-                Brand = dto.Brand,
-                Type = dto.Type,
-                Model = dto.Model,
-                Color = dto.Color,
-                Price = dto.Price,
-                HorsePower = dto.HorsePower,
-                Weight = dto.Weight,
-                BuiltDate = dto.BuiltDate,
-                LastMaintenance = dto.LastMaintenance,
-                CreatedAt = DateTime.Now,
-                ModifiedAt = DateTime.Now,
-            };
+            Car car = new Car();
+            FileToDatabase file = new FileToDatabase();
 
+            car.Id = Guid.NewGuid();
+            car.Brand = dto.Brand;
+            car.Type = dto.Type;
+            car.Model = dto.Model;
+            car.Color = dto.Color;
+            car.Price = dto.Price;
+            car.HorsePower = dto.HorsePower;
+            car.Weight = dto.Weight;
+            car.BuiltDate = dto.BuiltDate;
+            car.LastMaintenance = dto.LastMaintenance;
+            car.CreatedAt = DateTime.Now;
+            car.ModifiedAt = DateTime.Now;
+            
             if (dto.Files != null)
             {
                 _files.UploadFilesToDatabase(dto, car);
