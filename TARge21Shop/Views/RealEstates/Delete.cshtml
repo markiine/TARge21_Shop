@@ -19,7 +19,7 @@
         <div class="form-group row">
             <label asp-for="City" class="col-sm-2 col-form-label"></label>
             @Html.DisplayFor(model => model.City)
-        </div>
+        </div>s
 
         <div class="form-group row">
             <label asp-for="Region" class="col-sm-2 col-form-label"></label>
@@ -76,10 +76,10 @@
             @Html.DisplayFor(model => model.CreatedAt)
         </div>
 
-        @*        @foreach (var images in Model.Image)
+        @foreach (var images in Model.FileToApiViewModels)
         {
         <partial name="_Images" model="images" />
-        }*@
+        }
 
     </dl>
 
