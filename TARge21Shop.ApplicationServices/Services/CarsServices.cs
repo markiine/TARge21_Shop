@@ -10,13 +10,16 @@ namespace TARge21Shop.ApplicationServices.Services
     public class CarsServices : ICarsServices
     {
         private readonly TARge21ShopContext _context;
+        private readonly IFilesServices _files;
 
         public CarsServices
             (
-                TARge21ShopContext context
+            TARge21ShopContext context,
+            IFilesServices files
             )
         {
             _context = context;
+            _files = files;
         }
 
         public async Task<Car> Create(CarDto dto)
@@ -36,6 +39,11 @@ namespace TARge21Shop.ApplicationServices.Services
                 CreatedAt = DateTime.Now,
                 ModifiedAt = DateTime.Now,
             };
+
+            if (dto.Files != null)
+            {
+                _files.UploadFilesToDatabase(dto, car);
+            }
 
             await _context.Cars.AddAsync(car);
             await _context.SaveChangesAsync();
@@ -61,6 +69,11 @@ namespace TARge21Shop.ApplicationServices.Services
                 ModifiedAt = DateTime.Now,
             };
 
+            if (dto.Files != null)
+            {
+                _files.UploadFilesToDatabase(dto, domain);
+            }
+
             _context.Cars.Update(domain);
             await _context.SaveChangesAsync();
 
@@ -72,6 +85,18 @@ namespace TARge21Shop.ApplicationServices.Services
             var carId = await _context.Cars
                 .FirstOrDefaultAsync(x => x.Id == id);
 
+            var images = await _context.FileToDatabases
+                .Where(x => x.CarId == id)
+                .Select(y => new FileToDatabaseDto
+                {
+                    Id = y.Id,
+                    ImageTitle = y.ImageTitle,
+                    CarId = y.CarId,
+                })
+                .ToArrayAsync();
+
+
+            await _files.RemoveImagesFromDatabase(images);
             _context.Cars.Remove(carId);
             await _context.SaveChangesAsync();
 
