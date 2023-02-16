@@ -133,9 +133,9 @@ namespace TARge21Shop.ApplicationServices.Services
 
         public async Task<FileToApi> RemoveImageFromApi(FileToApiDto dto)
         {
-            
-                var imageId = await _context.FileToApis
-                    .FirstOrDefaultAsync(x => x.ExistingFilePath == dto.ExistingFilePath);
+
+            var imageId = await _context.FileToApis
+                .FirstOrDefaultAsync(x => x.Id == dto.Id);
 
                 var filePath = _webHost.WebRootPath + "\\multipleFileUpload\\" + imageId.ExistingFilePath;
 
