@@ -4,6 +4,9 @@
     {
         public DateTime Date { get; set; }
         public int EpochDate { get; set; }
+        public int Severity { get; set; }
+        public string Text { get; set; }
+        public string Category { get; set; }
         public Temperatures Temperature { get; set; }
         public DayNightCycles Day { get; set; }
         public DayNightCycles Night { get; set; }
