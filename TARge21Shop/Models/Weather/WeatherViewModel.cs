@@ -31,7 +31,6 @@
         public int UnitType { get; set; }
     }
 
-
     public class Temperatures
     {
         public Temperature Minimum { get; set; }
