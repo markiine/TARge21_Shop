@@ -29,18 +29,34 @@ namespace TARge21Shop.Core.Dto.WeatherDtos
         public string MobileLink { get; set; }
         public string Link { get; set; }
 
-        public int Icon { get; set; }
-        public string IconPhrase { get; set; }
-        public bool HasPrecipitation { get; set; }
-        public string PrecipitationType { get; set; }
-        public string PrecipitationIntensity { get; set; }
+        // DAY
+        public int DayIcon { get; set; }
+        public string DayIconPhrase { get; set; }
+        public bool DayHasPrecipitation { get; set; }
+        public string DayPrecipitationType { get; set; }
+        public string DayPrecipitationIntensity { get; set; }
 
-        public double Value { get; set; }
-        public string Unit { get; set; }
-        public int UnitType { get; set; }
+        // NIGHT
+        public int NightIcon { get; set; }
+        public string NightIconPhrase { get; set; }
+        public bool NightHasPrecipitation { get; set; }
+        public string NightPrecipitationType { get; set; }
+        public string NightPrecipitationIntensity { get; set; }
 
-        //public Minimum Minimum { get; set; }
-        //public Maximum Maximum { get; set; }
+        // TEMP
+        public Minimum Minimum { get; set; }
+        public Maximum Maximum { get; set; }
+
+        // MAX TEMP
+        public double MaximumValue { get; set; }
+        public string MaximumUnit { get; set; }
+        public int MaximumUnitType { get; set; }
+
+        // MIN TEMP
+        public double MinimumValue { get; set; }
+        public string MinimumUnit { get; set; }
+        public int MinimumUnitType { get; set; }
+
 
     }
 }

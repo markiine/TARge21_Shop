@@ -7,15 +7,17 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using TARge21Shop.Core.Dto.WeatherDtos;
+using TARge21Shop.Core.ServiceInterface;
 
 namespace TARge21Shop.ApplicationServices.Services
 {
-    public class WeatherForecastsServices
+    public class WeatherForecastsServices : IWeatherForecastsServices
     {
         public async Task<WeatherResultDto> WeatherDetail(WeatherResultDto dto)
         {
+            // 127964 Tallinna kood
             string apikey = "8c1HnCrK7N7Sz2aN5rmgZs93j88fk464";
-            var url = $"http://dataservice.accuweather.com/forecasts/v1/daily/1day/";
+            var url = $"http://dataservice.accuweather.com/forecasts/v1/daily/1day/124964?apikey=8c1HnCrK7N7Sz2aN5rmgZs93j88fk464&metric=tru";
 
             using (WebClient client = new WebClient())
             {
@@ -56,26 +58,16 @@ namespace TARge21Shop.ApplicationServices.Services
                 weatherInfo.DailyForecasts[0].Night.PrecipitationIntensity = dto.NightPrecipitationIntensity;
 
 
-                weatherInfo.DailyForecasts[0].Temperature.Maximum.Value = dto.TemperatureMaximumValue;
-                weatherInfo.DailyForecasts[0].Temperature.Maximum.Unit = dto.TemperatureMaximumUnit;
-                weatherInfo.DailyForecasts[0].Temperature.Maximum.UnitType = dto.TemperatureMaximumUnitType;
+                weatherInfo.DailyForecasts[0].Temperature.Maximum.Value = dto.MaximumValue;
+                weatherInfo.DailyForecasts[0].Temperature.Maximum.Unit = dto.MaximumUnit;
+                weatherInfo.DailyForecasts[0].Temperature.Maximum.UnitType = dto.MaximumUnitType;
 
-                weatherInfo.DailyForecasts[0].Temperature.Minimum.Value = dto.TemperatureMinimummValue;
-                weatherInfo.DailyForecasts[0].Temperature.Minimum.Unit = dto.TemperatureMinimumUnit;
-                weatherInfo.DailyForecasts[0].Temperature.Minimum.UnitType = dto.TemperatureMinimumUnitType;
-
-
-
-
-
-
+                weatherInfo.DailyForecasts[0].Temperature.Minimum.Value = dto.MinimumValue;
+                weatherInfo.DailyForecasts[0].Temperature.Minimum.Unit = dto.MinimumUnit;
+                weatherInfo.DailyForecasts[0].Temperature.Minimum.UnitType = dto.MinimumUnitType;
 
             }
             return dto;
-
-
-
-
 
         }
     }
