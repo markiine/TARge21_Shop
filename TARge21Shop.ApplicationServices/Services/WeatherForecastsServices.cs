@@ -1,11 +1,5 @@
 ﻿using Nancy.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 using TARge21Shop.Core.Dto.WeatherDtos;
 using TARge21Shop.Core.ServiceInterface;
 
@@ -17,7 +11,7 @@ namespace TARge21Shop.ApplicationServices.Services
         {
             // 127964 Tallinna kood
             string apikey = "8c1HnCrK7N7Sz2aN5rmgZs93j88fk464";
-            var url = $"http://dataservice.accuweather.com/forecasts/v1/daily/1day/124964?apikey=8c1HnCrK7N7Sz2aN5rmgZs93j88fk464&metric=tru";
+            var url = $"http://dataservice.accuweather.com/forecasts/v1/daily/1day/127964?apikey=8c1HnCrK7N7Sz2aN5rmgZs93j88fk464&metric=true";
 
             using (WebClient client = new WebClient())
             {

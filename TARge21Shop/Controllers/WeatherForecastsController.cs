@@ -21,25 +21,25 @@ namespace TARge21Shop.Controllers
         {
             WeatherViewModel vm = new WeatherViewModel();
 
-            return View();
+            return View(vm);
         }
 
         [HttpPost]
-        public IActionResult ShowWeather(WeatherViewModel vm)
+        public IActionResult ShowWeather()
         {
             if (ModelState.IsValid)
             {
                 return RedirectToAction("City", "WeatherForecasts");
             }
 
-            return View(vm);
+            return View();
         }        
         
         [HttpGet]
         public IActionResult City()
         {
-            WeatherResultDto dto = new();
-            WeatherViewModel vm = new();
+            WeatherResultDto dto = new WeatherResultDto();
+            WeatherViewModel vm = new WeatherViewModel();
 
             _weatherForecastsServices.WeatherDetail(dto);
 
@@ -51,20 +51,26 @@ namespace TARge21Shop.Controllers
             vm.MobileLink = dto.MobileLink;
             vm.Link = dto.Link;
 
+            vm.Temperature = new Temperatures();
+
+            vm.Temperature.Maximum = new Models.Weather.Temperature();
             vm.Temperature.Maximum.Value = dto.MaximumValue;
             vm.Temperature.Maximum.Unit = dto.MaximumUnit;
             vm.Temperature.Maximum.UnitType = dto.MaximumUnitType;
 
+            vm.Temperature.Minimum = new Models.Weather.Temperature();
             vm.Temperature.Minimum.Value = dto.MinimumValue;
             vm.Temperature.Minimum.Unit = dto.MinimumUnit;
             vm.Temperature.Minimum.UnitType = dto.MinimumUnitType;
 
+            vm.Day = new DayNightCycles();
             vm.Day.Icon = dto.DayIcon;
             vm.Day.IconPhrase = dto.DayIconPhrase;
             vm.Day.HasPrecipitation = dto.DayHasPrecipitation;
             vm.Day.PrecipitationType = dto.DayPrecipitationType;
             vm.Day.PrecipitationIntensity = dto.DayPrecipitationIntensity;
 
+            vm.Night = new DayNightCycles();
             vm.Night.Icon = dto.NightIcon;
             vm.Night.IconPhrase = dto.NightIconPhrase;
             vm.Night.HasPrecipitation = dto.NightHasPrecipitation;

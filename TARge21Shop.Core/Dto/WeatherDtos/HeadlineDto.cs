@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace TARge21Shop.Core.Dto.WeatherDtos
 {
@@ -35,7 +30,6 @@ namespace TARge21Shop.Core.Dto.WeatherDtos
 
         [JsonPropertyName("Link")]
         public string Link { get; set; }
-
 
     }
 }
