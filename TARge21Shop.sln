@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge21Shop", "TARge21Shop\TARge21Shop.csproj", "{195FDBE7-FB49-4881-8D8A-C1D9AC4C1657}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TARge21Shop", "TARge21Shop\TARge21Shop.csproj", "{195FDBE7-FB49-4881-8D8A-C1D9AC4C1657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge21Shop.ApplicationServices", "TARge21Shop.ApplicationServices\TARge21Shop.ApplicationServices.csproj", "{C31F47CC-DAFF-460A-A45B-2458576B57A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TARge21Shop.ApplicationServices", "TARge21Shop.ApplicationServices\TARge21Shop.ApplicationServices.csproj", "{C31F47CC-DAFF-460A-A45B-2458576B57A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge21Shop.Core", "TARge21Shop.Core\TARge21Shop.Core.csproj", "{2A8F1B44-F308-4E43-A9DE-830D0535FA88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TARge21Shop.Core", "TARge21Shop.Core\TARge21Shop.Core.csproj", "{2A8F1B44-F308-4E43-A9DE-830D0535FA88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge21Shop.Data", "TARge21Shop.Data\TARge21Shop.Data.csproj", "{ABA92340-B70B-4086-9194-E1675BAD906B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TARge21Shop.Data", "TARge21Shop.Data\TARge21Shop.Data.csproj", "{ABA92340-B70B-4086-9194-E1675BAD906B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge21Shop.SpaceshipTest", "TARge21Shop.SpaceshipTest\TARge21Shop.SpaceshipTest.csproj", "{409168FE-1CA1-4999-A87E-48B653783ED7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{ABA92340-B70B-4086-9194-E1675BAD906B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABA92340-B70B-4086-9194-E1675BAD906B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABA92340-B70B-4086-9194-E1675BAD906B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{409168FE-1CA1-4999-A87E-48B653783ED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409168FE-1CA1-4999-A87E-48B653783ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409168FE-1CA1-4999-A87E-48B653783ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409168FE-1CA1-4999-A87E-48B653783ED7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
