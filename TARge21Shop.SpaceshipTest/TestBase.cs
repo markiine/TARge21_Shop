@@ -3,6 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using TARge21Shop.Data;
 using TARge21Shop.SpaceshipTest.Macros;
+using TARge21Shop.Core.ServiceInterface;
+using TARge21Shop.ApplicationServices.Services;
+using Microsoft.AspNetCore.Hosting;
 
 namespace TARge21Shop.SpaceshipTest
 {
@@ -34,7 +37,10 @@ namespace TARge21Shop.SpaceshipTest
 
         public virtual void SetupServices(IServiceCollection services)
         {
-
+            services.AddScoped<ISpaceshipsServices, SpaceshipsServices>();
+            services.AddScoped<IFilesServices, FilesServices>();
+            services.AddScoped<IHostingEnvironment>();
+            
             services.AddDbContext<TARge21ShopContext>(x =>
             {
                 x.UseInMemoryDatabase("TEST");
