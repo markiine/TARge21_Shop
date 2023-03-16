@@ -100,11 +100,17 @@ namespace TARge21Shop.Controllers
             _weatherForecastsServices.OpenWeatherDetail(dto);
 
             vm.Name = dto.Name;
+
+            vm.Main = new Mains();
             vm.Main.Temp = dto.Temperature;
             vm.Main.FeelsLike = dto.TempFeelsLike;
             vm.Main.Humidity = dto.Humidity;
             vm.Main.Pressure = dto.Pressure;
+
+            vm.Wind = new Winds();
             vm.Wind.WindSpeed = dto.WindSpeed;
+
+            vm.Weather = new Weathers();
             vm.Weather.Main = dto.WeatherCondition;
 
             return View(vm);
