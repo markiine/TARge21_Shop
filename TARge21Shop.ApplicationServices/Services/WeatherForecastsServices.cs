@@ -62,5 +62,31 @@ namespace TARge21Shop.ApplicationServices.Services
             return dto;
 
         }
+
+        public async Task<WeatherResultDto> OpenWeatherDetail(OpenWeatherResultDto dto)
+        {
+            
+            string apikey = "cc24d0c9f87c454b55c9ded45a0f135e";
+            var url = $"https://api.openweathermap.org/data/2.5/weather?q=Kuusalu&APPID=cc24d0c9f87c454b55c9ded45a0f135e";
+
+            using (WebClient client = new WebClient())
+            {
+                string json = client.DownloadString(url);
+
+                OpenWeatherDto openWeatherInfo = new JavaScriptSerializer().Deserialize<OpenWeatherDto>(json);
+
+                dto.Name = openWeatherInfo.Name;
+                //dto.Temp = openWeatherInfo.Temperature;
+                //dto.FeelsLike = openWeatherInfo.TempFeelsLike;
+                //dto.Humidity = openWeatherInfo.Humidity;
+                //dto.Pressure = openWeatherInfo.Pressure;
+                //dto..WindSpeed = openWeatherInfo.WindSpeed;
+                //dto.WeatherCondition = dto.WeatherCondition;
+
+
+            }
+            return null;
+
+        }
     }
 }
