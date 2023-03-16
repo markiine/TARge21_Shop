@@ -76,8 +76,8 @@ namespace TARge21Shop.ApplicationServices.Services
                 OpenWeatherDto openWeatherInfo = new JavaScriptSerializer().Deserialize<OpenWeatherDto>(json);
 
                 dto.Name = openWeatherInfo.Name;
-                dto.Temperature = openWeatherInfo.Main.Temp;
-                dto.TempFeelsLike = openWeatherInfo.Main.Feels_Like;
+                dto.Temperature = Math.Round(openWeatherInfo.Main.Temp - 273.15, 2);
+                dto.TempFeelsLike = Math.Round(openWeatherInfo.Main.Feels_Like - 273.15, 2);
                 dto.Humidity = openWeatherInfo.Main.Humidity;
                 dto.Pressure = openWeatherInfo.Main.Pressure;
                 dto.WindSpeed = openWeatherInfo.Wind.Speed;
