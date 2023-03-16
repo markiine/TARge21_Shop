@@ -81,7 +81,7 @@ namespace TARge21Shop.ApplicationServices.Services
                 dto.Humidity = openWeatherInfo.Main.Humidity;
                 dto.Pressure = openWeatherInfo.Main.Pressure;
                 dto.WindSpeed = openWeatherInfo.Wind.Speed;
-                dto.WeatherCondition = openWeatherInfo.Weather.Main;
+                dto.WeatherCondition = openWeatherInfo.Weather[0].Main;
 
             }
             return dto;

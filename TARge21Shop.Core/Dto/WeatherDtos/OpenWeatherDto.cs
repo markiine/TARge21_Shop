@@ -30,7 +30,7 @@ namespace TARge21Shop.Core.Dto.WeatherDtos
         public Coords Coord { get; set; }
 
         [JsonPropertyName("weather")]
-        public Weathers Weather { get; set; }
+        public List<Weathers> Weather { get; set; }
 
         [JsonPropertyName("main")]
         public Mains Main { get; set; }
