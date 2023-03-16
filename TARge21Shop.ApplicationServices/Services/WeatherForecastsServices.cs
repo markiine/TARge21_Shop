@@ -63,7 +63,7 @@ namespace TARge21Shop.ApplicationServices.Services
 
         }
 
-        public async Task<WeatherResultDto> OpenWeatherDetail(OpenWeatherResultDto dto)
+        public async Task<OpenWeatherResultDto> OpenWeatherDetail(OpenWeatherResultDto dto)
         {
             
             string apikey = "cc24d0c9f87c454b55c9ded45a0f135e";
@@ -76,16 +76,15 @@ namespace TARge21Shop.ApplicationServices.Services
                 OpenWeatherDto openWeatherInfo = new JavaScriptSerializer().Deserialize<OpenWeatherDto>(json);
 
                 dto.Name = openWeatherInfo.Name;
-                //dto.Temp = openWeatherInfo.Temperature;
-                //dto.FeelsLike = openWeatherInfo.TempFeelsLike;
-                //dto.Humidity = openWeatherInfo.Humidity;
-                //dto.Pressure = openWeatherInfo.Pressure;
-                //dto..WindSpeed = openWeatherInfo.WindSpeed;
-                //dto.WeatherCondition = dto.WeatherCondition;
-
+                dto.Temperature = openWeatherInfo.Main.Temp;
+                dto.TempFeelsLike = openWeatherInfo.Main.Feels_Like;
+                dto.Humidity = openWeatherInfo.Main.Humidity;
+                dto.Pressure = openWeatherInfo.Main.Pressure;
+                dto.WindSpeed = openWeatherInfo.Wind.Speed;
+                dto.WeatherCondition = openWeatherInfo.Weather.Main;
 
             }
-            return null;
+            return dto;
 
         }
     }

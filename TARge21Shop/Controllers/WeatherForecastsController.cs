@@ -105,11 +105,7 @@ namespace TARge21Shop.Controllers
             vm.Main.Humidity = dto.Humidity;
             vm.Main.Pressure = dto.Pressure;
             vm.Wind.WindSpeed = dto.WindSpeed;
-            //vm.WeatherCondition = dto.WeatherCondition;
-
-             
-            /// POOLELI
-
+            vm.Weather.Main = dto.WeatherCondition;
 
             return View(vm);
         }
