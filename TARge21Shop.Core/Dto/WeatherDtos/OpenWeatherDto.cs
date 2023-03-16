@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using static TARge21Shop.Core.Dto.WeatherDtos.OpenWeatherDto;
 
 namespace TARge21Shop.Core.Dto.WeatherDtos
 {
@@ -25,7 +26,25 @@ namespace TARge21Shop.Core.Dto.WeatherDtos
         [JsonPropertyName("cod")]
         public int Cod { get; set; }
 
-        public class Coord
+        [JsonPropertyName("coord")]
+        public Coords Coord { get; set; }
+
+        [JsonPropertyName("weather")]
+        public Weathers Weather { get; set; }
+
+        [JsonPropertyName("main")]
+        public Mains Main { get; set; }
+
+        [JsonPropertyName("wind")]
+        public Winds Wind { get; set; }
+
+        [JsonPropertyName("clouds")]
+        public Cloud Clouds { get; set; }
+
+        [JsonPropertyName("sys")]
+        public Syss Sys { get; set; }
+
+        public class Coords
         {
             [JsonPropertyName("lon")]
             public double Lon { get; set; }
@@ -34,7 +53,7 @@ namespace TARge21Shop.Core.Dto.WeatherDtos
             public double Lat { get; set; }
         }
 
-        public class Weather
+        public class Weathers
         {
             [JsonPropertyName("id")]
             public int Id { get; set; }
@@ -49,19 +68,19 @@ namespace TARge21Shop.Core.Dto.WeatherDtos
             public string Icon { get; set; }
         }
 
-        public class Main
+        public class Mains
         {
             [JsonPropertyName("temp")]
             public double Temp { get; set; }
 
             [JsonPropertyName("feels_like")]
-            public double FeelsLike { get; set; }
+            public double Feels_Like { get; set; }
 
             [JsonPropertyName("temp_min")]
-            public double TempMin { get; set; }
+            public double Temp_Min { get; set; }
 
             [JsonPropertyName("temp_max")]
-            public double TempMax { get; set; }
+            public double Temp_Max { get; set; }
 
             [JsonPropertyName("pressure")]
             public int Pressure { get; set; }
@@ -70,37 +89,31 @@ namespace TARge21Shop.Core.Dto.WeatherDtos
             public int Humidity { get; set; }
 
             [JsonPropertyName("sea_level")]
-            public int SeaLevel { get; set; }
+            public int Sea_Level { get; set; }
 
             [JsonPropertyName("grnd_level")]
-            public int GroundLevel { get; set; }
+            public int Ground_Level { get; set; }
         }
 
-        public class Wind
+        public class Winds
         {
             [JsonPropertyName("speed")]
-            public double WindSpeed { get; set; }
+            public double Speed { get; set; }
 
             [JsonPropertyName("deg")]
-            public int Degree { get; set; }
+            public int Deg { get; set; }
 
             [JsonPropertyName("gust")]
             public double Gust { get; set; }
         }
 
-        public class Rain
-        {
-            [JsonPropertyName("1h")]
-            public double RainProblability { get; set; }
-        }
-
-        public class Clouds
+        public class Cloud
         {
             [JsonPropertyName("all")]
             public int All { get; set; }
         }
 
-        public class Sys
+        public class Syss
         {
             [JsonPropertyName("type")]
             public string Type { get; set; }

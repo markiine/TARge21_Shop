@@ -15,9 +15,8 @@ namespace TARge21Shop.Models.Weather
         public Weathers Weather { get; set; }
         public Mains Main { get; set; }
         public Winds Wind { get; set; }
-        public Rains Rain { get; set; }
-        public Clouds Clouds { get; set; }
-        public Sys Sys { get; set; }
+        public Cloud Clouds { get; set; }
+        public Syss Sys { get; set; }
     }
 
     public class Coords
@@ -53,17 +52,12 @@ namespace TARge21Shop.Models.Weather
         public double Gust { get; set; }
     }
 
-    public class Rains
-    {
-        public double RainProblability { get; set; }
-    }
-
-    public class Clouds
+    public class Cloud
     {
         public int All { get; set; }
     }
 
-    public class Sys
+    public class Syss
     {
         public string Type { get; set; }
         public int Id { get; set; }
