@@ -71,6 +71,18 @@ namespace TARge21Shop.SpaceshipTest
         }
 
         [Fact]
+        public async Task ShouldNot_DeleteByIdSpaceship_WhenDidNotDeleteSpaceship()
+        {
+            SpaceshipDto spaceship = MockSpaceshipData();
+            var addspaceship = await Svc<ISpaceshipsServices>().Create(spaceship);
+            var addSpaceship2 = await Svc<ISpaceshipsServices>().Create(spaceship);
+
+            var result = await Svc<ISpaceshipsServices>().Delete((Guid)addSpaceship2.Id);
+
+            Assert.NotEqual(result.Id, addspaceship.Id);
+        }
+
+        [Fact]
         public async Task Should_UpdateSpaceship_WhenUpdateData()
         {
             var guid = new Guid("6e8285f6-5205-46d4-b12e-c522f797f378");
@@ -120,6 +132,20 @@ namespace TARge21Shop.SpaceshipTest
             Assert.NotEqual(result.ModifiedAt, createSpaceship.ModifiedAt);
         }
 
+        [Fact]
+        public async Task ShouldNot_UpdateSpaceship_WhenNotUpdateData()
+        {
+            SpaceshipDto dto = MockSpaceshipData();
+            var createSpaceship = await Svc<ISpaceshipsServices>().Create(dto);
+
+            SpaceshipDto nullUpdate = MockNullSpaceship();
+            var result = await Svc<ISpaceshipsServices>().Update(nullUpdate);
+
+            var nullId = nullUpdate.Id;
+
+            Assert.False(result.Id == nullId);
+        }
+
         private SpaceshipDto MockSpaceshipData()
         {
             SpaceshipDto spaceship = new()
@@ -162,6 +188,29 @@ namespace TARge21Shop.SpaceshipTest
             };
 
             return update;
+        }
+
+        private SpaceshipDto MockNullSpaceship()
+        {
+            SpaceshipDto nullDto = new()
+            {
+                Id = null,
+                Name = "Name123",
+                Type = "asd",
+                Crew = 123,
+                Passengers = 123123,
+                CargoWeight = 123,
+                FullTripsCount = 123123,
+                MaintenanceCount = 1000123,
+                LastMaintenance = DateTime.Now.AddYears(1),
+                EnginePower = 1000123,
+                MaidenLaunch = DateTime.Now.AddYears(1),
+                BuiltDate = DateTime.Now.AddYears(1),
+                CreatedAt = DateTime.Now.AddYears(1),
+                ModifiedAt = DateTime.Now.AddYears(1),
+            };
+
+            return nullDto;
         }
 
 
